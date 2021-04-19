@@ -7,16 +7,17 @@ import os
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
-without_dir = os.path.join('without_mask2')
+without_dir = os.path.join('raw_data/without_mask1')
 print('total training withoutmask images:', len(os.listdir(without_dir)))
 withoutimgnum = len(os.listdir(without_dir))
 without_files = os.listdir(without_dir)
 
 for k in range(500,551):
     count = k
-    img = cv2.imread('without_mask2/' + without_files[k], 1)
+    img = cv2.imread('raw_data/without_mask1/' + without_files[k], 1)
 
     rows, cols = img.shape[:2]
+
     rects = detector(img, 1)
     for i, rect in enumerate(rects):
         shape = predictor(img, rect)
@@ -49,7 +50,7 @@ for k in range(500,551):
         return int(distance)
 
 
-    img2 = Image.open('without_mask2/' + without_files[k])
+    img2 = Image.open('raw_data/without_mask1/' + without_files[k])
     mask_img = Image.open('black-mask2.png')
     width = mask_img.width
     height = mask_img.height

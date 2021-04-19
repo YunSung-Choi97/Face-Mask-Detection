@@ -19,7 +19,7 @@ model = load_model('8LBMI2.h5')
 
 # 첫번째(0번째) 카메라를 통해 VideoCapture타입의 객체로 읽어옴
 cap = cv2.VideoCapture(0)
-i = 0
+
 
 while cap.isOpened():
 

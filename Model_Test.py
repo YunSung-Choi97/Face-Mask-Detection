@@ -27,7 +27,8 @@ for file in os.listdir(image_dir):
 
 test = np.array(test)
 print(test.shape)   # 이미지는 3차원 행렬 나옴. (Y축, X축, 3(BGR))
-model = load_model('6LBMIv2-20.h5')
+# model = load_model('6LBMIv2-20.h5')
+model = load_model('8LBMI2.h5')
 predict = model.predict(test)
 print(predict.shape)
 print("ImageName : , Predict : [mask, nomask]")
